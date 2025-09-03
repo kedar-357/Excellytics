@@ -84,7 +84,6 @@ const SignUp = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      <Navigation />
       <FloatingElements />
       <div className="relative min-h-screen flex items-center justify-center px-4 py-20">
         <div className="absolute inset-0">
