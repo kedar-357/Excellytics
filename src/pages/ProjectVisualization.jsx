@@ -288,5 +288,4 @@ const ProjectVisualization = () => {
     </div>
   );
 };
-
 export default ProjectVisualization;
