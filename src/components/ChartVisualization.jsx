@@ -1,8 +1,46 @@
 import React, { forwardRef } from 'react';
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, BarElement, ArcElement, RadialLinearScale, Title, Tooltip, Legend, Filler } from 'chart.js';
-import { Chart } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  BarElement,
+  BarController,
+  LineController,
+  PieController,
+  DoughnutController,
+  ScatterController,
+  BubbleController,
+  ArcElement,
+  RadialLinearScale,
+  Title,
+  Tooltip,
+  Legend,
+  Filler
+} from 'chart.js';
+import { Bar, Line, Pie, Doughnut, Scatter, Bubble } from 'react-chartjs-2';
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, ArcElement, RadialLinearScale, Title, Tooltip, Legend, Filler);
+// Register Chart.js components including controllers
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  BarElement,
+  BarController,
+  LineController,
+  PieController,
+  DoughnutController,
+  ScatterController,
+  BubbleController,
+  ArcElement,
+  RadialLinearScale,
+  Title,
+  Tooltip,
+  Legend,
+  Filler
+);
 
 const ChartVisualization = forwardRef(({ data, chartType, title = 'Data Visualization', chartConfig }, ref) => {
   if (!data || !data.length) {
@@ -221,13 +259,31 @@ const ChartVisualization = forwardRef(({ data, chartType, title = 'Data Visualiz
     return options;
   };
 
+  // Render the appropriate chart component
+  const renderChart = () => {
+    const chartOptions = getChartOptions();
+    
+    switch (chartType) {
+      case 'bar':
+        return <Bar data={chartData} options={chartOptions} />;
+      case 'line':
+        return <Line data={chartData} options={chartOptions} />;
+      case 'pie':
+        return <Pie data={chartData} options={chartOptions} />;
+      case 'doughnut':
+        return <Doughnut data={chartData} options={chartOptions} />;
+      case 'scatter':
+        return <Scatter data={chartData} options={chartOptions} />;
+      case 'bubble':
+        return <Bubble data={chartData} options={chartOptions} />;
+      default:
+        return <Bar data={chartData} options={chartOptions} />;
+    }
+  };
+
   return (
     <div className="w-full h-96 bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm" ref={ref}>
-      <Chart
-        type={chartType}
-        data={chartData}
-        options={getChartOptions()}
-      />
+      {renderChart()}
     </div>
   );
 });
