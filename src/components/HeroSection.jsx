@@ -1,4 +1,3 @@
-
 import ParticleBackground from './ParticleBackground';
 import FloatingElements from './FloatingElements';
 import { motion } from 'framer-motion';
@@ -65,80 +64,6 @@ const HeroSection = () => {
           >
             Upload your spreadsheets and watch them transform into stunning, interactive visualizations with AI-powered insights in seconds.
           </motion.p>
-
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 mb-8"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-          >
-            <motion.button
-              className="group relative px-8 py-4 bg-gradient-to-r from-excellytics-green-500 to-excellytics-blue-500 text-white font-bold rounded-full shadow-lg overflow-hidden"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <motion.div
-                className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20"
-                initial={false}
-                animate={{ x: ['-100%', '100%'] }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-              />
-              <span className="relative z-10 flex items-center justify-center">
-                Get Started Free
-                <motion.svg 
-                  className="w-5 h-5 ml-2" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </motion.svg>
-              </span>
-            </motion.button>
-
-            <motion.button
-              className="px-8 py-4 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-bold rounded-full border-2 border-gray-200 dark:border-gray-600 hover:border-excellytics-green-400 hover:text-excellytics-green-600 transition-all duration-300"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Watch Demo
-            </motion.button>
-          </motion.div>
-
-          {/* Trust Indicators */}
-          <motion.div
-            className="flex items-center space-x-6 text-sm text-gray-500 dark:text-gray-400"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-          >
-            <div className="flex items-center">
-              <motion.div
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="w-3 h-3 bg-green-500 rounded-full mr-2"
-              />
-              Free Forever
-            </div>
-            <div className="flex items-center">
-              <motion.div
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                className="w-3 h-3 bg-blue-500 rounded-full mr-2"
-              />
-              No Setup Required
-            </div>
-            <div className="flex items-center">
-              <motion.div
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-                className="w-3 h-3 bg-purple-500 rounded-full mr-2"
-              />
-              Secure & Private
-            </div>
-          </motion.div>
         </div>
 
         {/* Right Side: Hero Graphic */}
